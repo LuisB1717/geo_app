@@ -1,5 +1,5 @@
 <template>
-  <div class="item-card">
+  <div class="item-card" @click="$emit('click')">
     <img
       class="img-item"
       src="https://elviajerofeliz.com/wp-content/uploads/2019/02/Ciudades-de-Espan%CC%83a.jpg"
@@ -55,13 +55,13 @@ export default {
 }
 
 .country-name {
-  font-size: 25px;
+  
   font-weight: 800;
   color: #0098ff;
 }
 
 .continent-name {
-  font-size: 20px;
+
   font-weight: 500;
 }
 

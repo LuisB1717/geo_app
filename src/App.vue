@@ -1,24 +1,14 @@
 <template>
   <div id="app">
-    <side-bar></side-bar>
+    <side-bar />
+
     <main>
       <div class="header">
-        <the-search></the-search>
+        <the-search />
       </div>
 
       <section>
-        <div class="card-container">
-          <the-card
-            v-for="country in countries"
-            :key="country.code"
-            :country="country"
-            @click.native="onSelectCountry(country)"
-          />
-        </div>
-
-        <div class="drawer-container">
-          <the-drawer :country="countrySelected" />
-        </div>
+        <router-view />
       </section>
     </main>
   </div>
@@ -26,56 +16,13 @@
 
 <script>
 import SideBar from "./components/SideBar";
-import TheCard from "./components/TheCard.vue";
-import TheDrawer from "./components/TheDrawer.vue";
 import TheSearch from "./components/TheSearch.vue";
-
-import gql from "graphql-tag";
 
 export default {
   name: "App",
   components: {
     SideBar,
-    TheCard,
     TheSearch,
-    TheDrawer,
-  },
-
-  data() {
-    return {
-      countrySelected: null,
-    };
-  },
-
-  methods: {
-    onSelectCountry: function (country) {
-      this.countrySelected = country;
-    },
-  },
-
-  apollo: {
-    countries: gql`
-      {
-        countries {
-          code
-          name
-          capital
-          currency
-          languages {
-            code
-            name
-          }
-          continent {
-            code
-            name
-          }
-          states {
-            code
-            name
-          }
-        }
-      }
-    `,
   },
 };
 </script>
@@ -100,16 +47,6 @@ main {
   padding: 40px 20px;
 }
 
-section {
-  display: flex;
-  justify-content: space-between;
-}
-
-.drawer-container {
-  height: 100%;
-  background-color: white;
-}
-
 .header {
   width: 100%;
   display: flex;
@@ -118,11 +55,5 @@ section {
   margin-bottom: 60px;
 }
 
-.card-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 300px);
-  gap: 25px;
-  place-content: center;
-  flex: 1;
-}
+
 </style>

@@ -1,37 +1,36 @@
 <template>
   <nav class="navbar">
-    <span class="name">GEOAPP</span>
+    <div class="name">GEOAPP</div>
     <div class="list">
       <router-link to="/">Inicio</router-link>
       <router-link to="/countries">Paises</router-link>
       <router-link to="/continents">Continentes</router-link>
     </div>
-
-    <router-view />
   </nav>
 </template>
 
 <style>
 .navbar {
   position: fixed;
-  width: 300px;
+  width: 280px;
   height: 100%;
   background-color: #676767;
   color: white;
-  padding: 20px;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .name {
-  font-size: 30px;
   font-weight: bold;
-  padding: 1rem;
+  padding: 1.5rem ;
+  text-align: center;
+  background-color: #dbdbdb;
+  border-radius: 0.5rem;
+  color: #676767;
 }
 
 .list {
-  font-size: 25px;
   font-weight: bold;
   margin-top: 2rem;
   cursor: pointer;
@@ -40,8 +39,8 @@
 }
 
 .list a {
-  margin: 1rem 0;
-  padding: 0.5rem 2.5rem;
+  margin: 0.2rem 0;
+  padding: 0.5rem 1.5rem;
   text-decoration: none;
   color: white;
 }

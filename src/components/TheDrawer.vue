@@ -17,13 +17,10 @@
     </div>
     <div class="country-info">
       <p>
-        Capital: <span> {{ country?.capital }}</span>
+        Capital: <span> {{ country?.capital }} </span>
       </p>
       <p>
-        Language:
-        <span v-for="language in country?.languages" :key="language.code">
-          {{ language.name }}</span
-        >
+        Language: <span> {{ languages }} </span>
       </p>
       <p>Population: <span> 500k people</span></p>
       <p>
@@ -49,6 +46,12 @@ export default {
   props: {
     country: Object,
   },
+  computed: {
+    languages() {
+      if (!this.country?.languages) return ''
+      return this.country.languages.map(lang => lang.name).join(', ')
+    }
+  }
 };
 </script>
 
@@ -75,7 +78,6 @@ export default {
 }
 
 .country-info p {
-  font-size: 23px;
   font-weight: 800;
   color: #0098ff;
   margin-bottom: 15px;
@@ -98,13 +100,11 @@ export default {
 .region-list li {
   margin: 8px 0;
   color: #757575;
-  font-size: 18px;
   font-weight: 500;
 }
 
 .region-list p{
     color: #757575;
-    font-size: 18px;
     font-weight: 500;
     text-align: center;
     margin-bottom: 0;
@@ -124,7 +124,6 @@ export default {
   border-radius: 50%;
   background-color: #0098ff;
   color: white;
-  font-size: 20px;
   font-weight: bold;
   
 }
