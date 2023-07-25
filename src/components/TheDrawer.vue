@@ -11,26 +11,42 @@
         alt=""
       />
       <div>
-        <p class="country-name">Spain</p>
-        <p class="continent-name">Europe</p>
+        <p class="country-name">{{ country?.name }}</p>
+        <p class="continent-name">{{ country?.continent.name }}</p>
       </div>
     </div>
     <div class="country-info">
-      <p>Capital: <span> London</span></p>
-      <p>Lenguage: <span> English</span></p>
+      <p>
+        Capital: <span> {{ country?.capital }}</span>
+      </p>
+      <p>
+        Language:
+        <span v-for="language in country?.languages" :key="language.code">
+          {{ language.name }}</span
+        >
+      </p>
       <p>Population: <span> 500k people</span></p>
-      <p>Currency: <span> Euro, dolar</span></p>
+      <p>
+        Currency: <span> {{ country?.currency }}</span>
+      </p>
       <p>Region</p>
-
       <ul class="region-list">
-        <li>Santa cruz</li>
-        <li>Santa cruz</li>
-        <li>Santa cruz</li>
-        <li>Santa cruz</li>
+        <li v-for="state in country?.states" :key="state.code">
+          {{ state.name }}
+        </li>
+        <p v-if="country?.states.length === 0">No se encontraron regiones</p>
       </ul>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    country: Object,
+  },
+};
+</script>
 
 <style>
 .drawer {
@@ -69,16 +85,24 @@
 .region-list {
   list-style: none;
   padding: 10px 20px;
-  background-color:white;
+  background-color: white;
   color: #676767;
-  box-shadow:  1px 1px 6px 1px #757575; 
-  
+  box-shadow: 1px 1px 6px 1px #757575;
 }
 
-.region-list li{
+.region-list li {
   margin: 8px 0;
   color: #757575;
   font-size: 18px;
   font-weight: 500;
 }
+
+.region-list p{
+    color: #757575;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 0;
+}
+
 </style>

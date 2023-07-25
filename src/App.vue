@@ -8,27 +8,16 @@
 
       <section>
         <div class="card-container">
-          <TheCard></TheCard>
-          <TheCard></TheCard>
-          <TheCard></TheCard>
-          <TheCard></TheCard>
-          <TheCard></TheCard>
-          <TheCard></TheCard>
-          <TheCard></TheCard>
-          <TheCard></TheCard>
-          <TheCard></TheCard>
-          <TheCard></TheCard>
-          <TheCard></TheCard>
-          <TheCard></TheCard>
-          <TheCard></TheCard>
-          <TheCard></TheCard>
-          <TheCard></TheCard>
-          <TheCard></TheCard>
-          <TheCard></TheCard>
+          <TheCard
+            v-for="country in countries"
+            :key="country.code"
+            :country="country"
+            @click.native="onSelectCountry(country)"
+          ></TheCard>
         </div>
 
         <div class="drawer-container">
-          <TheDrawer></TheDrawer>
+          <TheDrawer :country="countrySelected"></TheDrawer>
         </div>
       </section>
     </main>
@@ -41,6 +30,8 @@ import TheCard from "./components/TheCard.vue";
 import TheDrawer from "./components/TheDrawer.vue";
 import TheSearch from "./components/TheSearch.vue";
 
+import gql from "graphql-tag";
+
 export default {
   name: "App",
   components: {
@@ -48,6 +39,43 @@ export default {
     TheCard,
     TheSearch,
     TheDrawer,
+  },
+
+  data() {
+    return {
+      countrySelected: null,
+    };
+  },
+
+  methods: {
+    onSelectCountry: function (country) {
+      this.countrySelected = country;
+    },
+  },
+
+  apollo: {
+    countries: gql`
+      {
+        countries {
+          code
+          name
+          capital
+          currency
+          languages {
+            code
+            name
+          }
+          continent {
+            code
+            name
+          }
+          states {
+            code
+            name
+          }
+        }
+      }
+    `,
   },
 };
 </script>
@@ -75,13 +103,11 @@ main {
 section {
   display: flex;
   justify-content: space-between;
- 
 }
 
 .drawer-container {
   height: 100%;
   background-color: white;
-
 }
 
 .header {

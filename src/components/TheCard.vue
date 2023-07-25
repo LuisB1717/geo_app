@@ -12,12 +12,20 @@
         alt=""
       />
       <div>
-        <p class="country-name">Spain</p>
-        <p class="continent-name">Europe</p>
+        <p class="country-name">{{ country?.name }}</p>
+        <p class="continent-name">{{country?.continent.name}} </p>
       </div>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    country: Object
+  },
+};
+</script>
 
 <style>
 .item-card {
