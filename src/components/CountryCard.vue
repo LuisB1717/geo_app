@@ -6,14 +6,14 @@
       alt=""
     />
 
-    <div class="country-info">
+    <div class="country-card-info">
       <img
         src="https://img.asmedia.epimg.net/resizer/LQyBk5T2TfVttC_yVM8n5HuEYpM=/1472x828/cloudfront-eu-central-1.images.arcpublishing.com/diarioas/53YSJXSIZFHNTBV52Z4AMKISUM.png"
         alt=""
       />
       <div>
         <p class="country-name">{{ country?.name }}</p>
-        <p class="continent-name">{{country?.continent.name}} </p>
+        <p class="continent-name">{{ country?.continent.name }}</p>
       </div>
     </div>
   </div>
@@ -22,7 +22,7 @@
 <script>
 export default {
   props: {
-    country: Object
+    country: Object,
   },
 };
 </script>
@@ -37,36 +37,34 @@ export default {
   display: flex;
   flex-direction: column;
 }
-.img-country {
+.country-img {
   width: 100%;
   border-radius: 50px 50px 0 0;
 }
 
-.country-info {
+.country-card-info {
   display: flex;
   padding: 15px 35px;
   align-items: center;
 }
 
-.country-info img {
+.country-card-info img {
   width: 60px;
   height: 40px;
   margin-right: 20px;
 }
 
 .country-name {
-  
-  font-weight: 800;
+  font-weight: 700;
   color: #0098ff;
 }
 
 .continent-name {
-
-  font-weight: 500;
+  color: #757575;
 }
 
 .country-card:hover {
-  .country-info {
+  .country-card-info {
     background-color: #0098ff;
     border-radius: 0 0 50px 50px;
   }
