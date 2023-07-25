@@ -8,6 +8,7 @@
     <button class="search-button">
       <img src="../assets/lupa.png" alt="" /> Buscar
     </button>
+  
   </div>
 </template>
 

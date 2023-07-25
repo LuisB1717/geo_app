@@ -1,12 +1,13 @@
 <template>
   <nav class="navbar">
     <span class="name">GEOAPP</span>
+    <div class="list">
+      <router-link to="/">Inicio</router-link>
+      <router-link to="/countries">Paises</router-link>
+      <router-link to="/continents">Continentes</router-link>
+    </div>
 
-    <ul class="list">
-      <li>Inicio</li>
-      <li>Países</li>
-      <li>Continentes</li>
-    </ul>
+    <router-view />
   </nav>
 </template>
 
@@ -30,19 +31,22 @@
 }
 
 .list {
-  list-style: none;
   font-size: 25px;
   font-weight: bold;
   margin-top: 2rem;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
 }
 
-.list li {
+.list a {
   margin: 1rem 0;
   padding: 0.5rem 2.5rem;
+  text-decoration: none;
+  color: white;
 }
 
-.list li:hover {
+.list a:hover , .list a.router-link-exact-active{
   background-color: white;
   color: #676767;
   border-radius: 7px;

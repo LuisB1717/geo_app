@@ -37,6 +37,10 @@
         <p v-if="country?.states.length === 0">No se encontraron regiones</p>
       </ul>
     </div>
+
+    <div class="container-button">
+       <button class="close-button">X</button>
+    </div>
   </div>
 </template>
 
@@ -51,6 +55,7 @@ export default {
 <style>
 .drawer {
   padding: 50px;
+  position: relative;
 }
 .img-drawer {
   width: 300px;
@@ -104,5 +109,25 @@ export default {
     text-align: center;
     margin-bottom: 0;
 }
+
+.container-button{  
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+}
+
+.close-button{
+  border: 0;
+  cursor: pointer;
+  padding: 7px 12px;
+  border-radius: 50%;
+  background-color: #0098ff;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  
+}
+
 
 </style>

@@ -1,23 +1,23 @@
 <template>
   <div id="app">
-    <SideBar></SideBar>
+    <side-bar></side-bar>
     <main>
       <div class="header">
-        <TheSearch></TheSearch>
+        <the-search></the-search>
       </div>
 
       <section>
         <div class="card-container">
-          <TheCard
+          <the-card
             v-for="country in countries"
             :key="country.code"
             :country="country"
             @click.native="onSelectCountry(country)"
-          ></TheCard>
+          />
         </div>
 
         <div class="drawer-container">
-          <TheDrawer :country="countrySelected"></TheDrawer>
+          <the-drawer :country="countrySelected" />
         </div>
       </section>
     </main>
