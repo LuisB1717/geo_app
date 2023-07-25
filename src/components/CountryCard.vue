@@ -1,12 +1,12 @@
 <template>
-  <div class="item-card" @click="$emit('click')">
+  <div class="country-card" @click="$emit('click')">
     <img
-      class="img-item"
+      class="country-img"
       src="https://elviajerofeliz.com/wp-content/uploads/2019/02/Ciudades-de-Espan%CC%83a.jpg"
       alt=""
     />
 
-    <div class="item-info">
+    <div class="country-info">
       <img
         src="https://img.asmedia.epimg.net/resizer/LQyBk5T2TfVttC_yVM8n5HuEYpM=/1472x828/cloudfront-eu-central-1.images.arcpublishing.com/diarioas/53YSJXSIZFHNTBV52Z4AMKISUM.png"
         alt=""
@@ -28,7 +28,7 @@ export default {
 </script>
 
 <style>
-.item-card {
+.country-card {
   width: 300px;
   background-color: white;
   border-radius: 50px;
@@ -37,18 +37,18 @@ export default {
   display: flex;
   flex-direction: column;
 }
-.img-item {
+.img-country {
   width: 100%;
   border-radius: 50px 50px 0 0;
 }
 
-.item-info {
+.country-info {
   display: flex;
   padding: 15px 35px;
   align-items: center;
 }
 
-.item-info img {
+.country-info img {
   width: 60px;
   height: 40px;
   margin-right: 20px;
@@ -65,8 +65,8 @@ export default {
   font-weight: 500;
 }
 
-.item-card:hover {
-  .item-info {
+.country-card:hover {
+  .country-info {
     background-color: #0098ff;
     border-radius: 0 0 50px 50px;
   }

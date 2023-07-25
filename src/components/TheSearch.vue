@@ -9,6 +9,7 @@
         placeholder="Escribe el país que deseas ver"
         @focus="onFocus"
         @blur="onBlur"
+        autocomplete="off"
       />
     </div>
     <button class="search-button">

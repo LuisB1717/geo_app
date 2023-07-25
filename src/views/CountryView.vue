@@ -1,7 +1,7 @@
 <template>
   <div class="country-view">
     <div class="card-container">
-      <the-card
+      <country-card
         v-for="country in countries"
         :key="country.code"
         :country="country"
@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import TheCard from "../components/TheCard.vue";
+import CountryCard from "../components/CountryCard.vue";
 import TheDrawer from "../components/TheDrawer.vue";
 import { countryQuery } from "../graphql/queries/countries.js";
 
@@ -24,7 +24,7 @@ export default {
   name: "CountryView",
 
   components: {
-    TheCard,
+    CountryCard,
     TheDrawer,
   },
 
