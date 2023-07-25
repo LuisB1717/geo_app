@@ -9,7 +9,10 @@
       />
     </div>
 
-    <div class="drawer-container">
+    <div class="drawer-container" v-if="showDrawer">
+      <div class="container-button">
+        <button class="close-button" @click="onClosedDrawer">X</button>
+      </div>
       <the-drawer :country="countrySelected" />
     </div>
   </div>
@@ -31,12 +34,18 @@ export default {
   data() {
     return {
       countrySelected: null,
+      showDrawer: false,
     };
   },
 
   methods: {
-    onSelectCountry: function (country) {
+    onSelectCountry(country) {
       this.countrySelected = country;
+      this.showDrawer = true;
+    },
+
+    onClosedDrawer() {
+      this.showDrawer = false;
     },
   },
 
@@ -55,6 +64,7 @@ export default {
 .drawer-container {
   height: 100%;
   background-color: white;
+  position: relative;
 }
 
 .card-container {
@@ -63,5 +73,21 @@ export default {
   gap: 25px;
   place-content: center;
   flex: 1;
+}
+
+.container-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.close-button {
+  border: 0;
+  cursor: pointer;
+  padding: 7px 10px;
+  border-radius: 50%;
+  background-color: #0098ff;
+  color: white;
+  font-weight: bold;
 }
 </style>

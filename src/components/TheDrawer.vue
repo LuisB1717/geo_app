@@ -34,10 +34,6 @@
         <p v-if="country?.states.length === 0">No se encontraron regiones</p>
       </ul>
     </div>
-
-    <div class="container-button">
-       <button class="close-button">X</button>
-    </div>
   </div>
 </template>
 
@@ -48,17 +44,16 @@ export default {
   },
   computed: {
     languages() {
-      if (!this.country?.languages) return ''
-      return this.country.languages.map(lang => lang.name).join(', ')
-    }
-  }
+      if (!this.country?.languages) return "";
+      return this.country.languages.map((lang) => lang.name).join(", ");
+    },
+  },
 };
 </script>
 
 <style>
 .drawer {
   padding: 50px;
-  position: relative;
 }
 .img-drawer {
   width: 300px;
@@ -103,30 +98,10 @@ export default {
   font-weight: 500;
 }
 
-.region-list p{
-    color: #757575;
-    font-weight: 500;
-    text-align: center;
-    margin-bottom: 0;
+.region-list p {
+  color: #757575;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 0;
 }
-
-.container-button{  
-  position: absolute;
-  top: 10px;
-  right: 10px;
-
-}
-
-.close-button{
-  border: 0;
-  cursor: pointer;
-  padding: 7px 12px;
-  border-radius: 50%;
-  background-color: #0098ff;
-  color: white;
-  font-weight: bold;
-  
-}
-
-
 </style>
