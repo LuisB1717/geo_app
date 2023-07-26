@@ -8,11 +8,10 @@
       src="https://elviajerofeliz.com/wp-content/uploads/2019/02/Ciudades-de-Espan%CC%83a.jpg"
       alt=""
     />
-
     <div class="country-card-info">
       <img
-        src="https://img.asmedia.epimg.net/resizer/LQyBk5T2TfVttC_yVM8n5HuEYpM=/1472x828/cloudfront-eu-central-1.images.arcpublishing.com/diarioas/53YSJXSIZFHNTBV52Z4AMKISUM.png"
-        alt=""
+        :src="`https://flagsapi.com/${country?.code}/flat/64.png`"
+        alt="Country flag"
       />
       <div>
         <p class="country-name">{{ country?.name }}</p>
@@ -55,8 +54,7 @@ export default {
 }
 
 .country-card-info img {
-  width: 60px;
-  height: 40px;
+  width: 48px;
   margin-right: 16px;
 }
 

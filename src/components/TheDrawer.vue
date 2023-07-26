@@ -8,8 +8,8 @@
     />
     <div class="drawer-content">
       <img
-        src="https://img.asmedia.epimg.net/resizer/LQyBk5T2TfVttC_yVM8n5HuEYpM=/1472x828/cloudfront-eu-central-1.images.arcpublishing.com/diarioas/53YSJXSIZFHNTBV52Z4AMKISUM.png"
-        alt=""
+        :src="`https://flagsapi.com/${country?.code}/flat/64.png`"
+        alt="Country flag"
       />
       <div>
         <p class="country-name">{{ country?.name }}</p>
@@ -74,8 +74,7 @@ export default {
 }
 
 .drawer-content img {
-  width: 60px;
-  height: 40px;
+  width: 50px;
   margin-right: 20px;
 }
 

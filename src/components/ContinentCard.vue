@@ -1,7 +1,7 @@
 <template>
   <div class="continent-card" @click="onCardClick">
     <img
-      src="https://pixabay.com/get/gdc2222eb785942d451de4beae2b5133b144676a5fc96fb06e0bba7a34ce75310ba533904e88129671cc9019823a1851f4b5057b789e97028d235550a06ae2bfc_640.jpg"
+      src="https://cdn.pixabay.com/photo/2017/06/14/08/20/map-of-the-world-2401458_1280.jpg"
       alt=""
     />
     <div class="continent-card-info">
