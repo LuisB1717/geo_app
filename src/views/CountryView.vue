@@ -1,13 +1,13 @@
 <template>
   <div class="country-view">
     <div class="header">
-      <the-search :continents="continents" @change="onFilterChange" />
+      <the-search v-model="search" :continents="continents" @change="onFilterChange" />
     </div>
 
     <div class="section">
       <div class="card-container">
         <country-card
-          v-for="country in countries"
+          v-for="country in filteredCountries"
           :key="country.code"
           :country="country"
           :selected="countrySelected"
@@ -28,21 +28,19 @@ import { countryQuery } from "../graphql/queries/countries.js";
 
 export default {
   name: "CountryView",
-
   props: {
     continents: Array,
   },
-
   components: {
     CountryCard,
     TheDrawer,
     TheSearch,
   },
-
   data() {
     const selectedContinents = this.$router.currentRoute.query?.continent;
 
     return {
+      search: '',
       showDrawer: false,
       countrySelected: null,
       selectedContinents: selectedContinents
@@ -50,7 +48,20 @@ export default {
         : [],
     };
   },
-
+  computed: {
+    filteredCountries() {
+      if (!this.countries?.length) {
+        return []
+      }
+      if (this.search == '') {
+        return this.countries
+      }
+      return this.countries.filter(country => {
+        const countryName = country.name.toLowerCase()
+        return countryName.includes(this.search.toLowerCase())
+      })
+    }
+  },
   methods: {
     onFilterChange(value) {
       this.selectedContinents = value;
@@ -75,7 +86,7 @@ export default {
         return {
           continents:
             this.selectedContinents.length === 0
-              ? this.continents.map((continent) => continent.code)
+              ? this.continents?.map((continent) => continent.code)
               : this.selectedContinents,
         };
       },

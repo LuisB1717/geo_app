@@ -1,16 +1,11 @@
 <template>
   <div class="home">
-      <p> Soy el home</p>
+      <p> Bienvenido a GeoApp </p>
   </div>
 </template>
 
 <script>
-
-
 export default {
   name: 'HomeView',
-  components: {
-
-  }
 }
 </script>

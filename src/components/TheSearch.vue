@@ -8,6 +8,7 @@
         class="search-modal-input"
         placeholder="Escribe el país que deseas ver"
         autocomplete="off"
+        @input="onInput"
         @focus="onFocus"
       />
     </div>
@@ -27,10 +28,12 @@ export default {
     FilterModal,
   },
   props:{
+    value: String,
     continents: Array
   },
   data() {
     return {
+      search: '',
       showModal: false,
     };
   },
@@ -50,6 +53,9 @@ export default {
   methods: {
     onFilterChange(value) {
       this.$emit('change', value)
+    },
+    onInput(event) {
+      this.$emit('input', event.target.value)
     },
     onFocus() {
       this.showModal = true;
