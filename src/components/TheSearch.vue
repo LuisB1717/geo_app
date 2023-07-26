@@ -5,44 +5,56 @@
       <input
         name="search"
         type="text"
-        class="search-input"
+        class="search-modal-input"
         placeholder="Escribe el país que deseas ver"
-        @focus="onFocus"
-        @blur="onBlur"
         autocomplete="off"
+        @focus="onFocus"
       />
     </div>
     <button class="search-button">
       <img src="../assets/lupa.png" alt="" /> Buscar
     </button>
 
-    <div v-if="showModal" class="search-modal">
-      
-    </div>
+    <filter-modal v-if="showModal" :continents="continents" @change="onFilterChange"/>
   </div>
 </template>
 
 <script>
+import FilterModal from "../components/FilterModal.vue";
+
 export default {
+  components: {
+    FilterModal,
+  },
+  props:{
+    continents: Array
+  },
   data() {
     return {
       showModal: false,
-    }
+    };
   },
   computed: {
     languages() {
-      if (!this.country?.languages) return ''
-      return this.country.languages.map(lang => lang.name).join(', ')
-    }
+      if (!this.country?.languages) return "";
+      return this.country.languages.map((lang) => lang.name).join(", ");
+    },
+  },
+  mounted() {
+    window.addEventListener('click', (event) => {
+      if (!event.target.className.includes('modal')) {
+        this.showModal = false;
+      }
+    })
   },
   methods: {
+    onFilterChange(value) {
+      this.$emit('change', value)
+    },
     onFocus() {
       this.showModal = true;
     },
-    onBlur() {
-      this.showModal = false;
-    }
-  }
+  },
 };
 </script>
 
@@ -57,7 +69,7 @@ export default {
   align-items: center;
   border-radius: 60px;
   padding: 12px;
-  box-shadow:  1px 2px 4px #757575; ;
+  box-shadow: 1px 2px 4px #757575;
 }
 
 .input-container {
@@ -67,7 +79,7 @@ export default {
   color: #676767;
 }
 
-.search-input {
+.search-modal-input {
   background: transparent;
   color: #8b8b8b;
   border: none;
@@ -75,11 +87,11 @@ export default {
   width: 200px;
 }
 
-.search-input::placeholder {
+.search-modal-input::placeholder {
   color: #8b8b8b;
 }
 
-.search-input:focus {
+.search-modal-input:focus {
   outline: none;
   border-bottom: 1px #0098ff solid;
   margin-bottom: -1px;
@@ -99,15 +111,5 @@ export default {
 
 .search-button img {
   width: 20px;
-}
-
-.search-modal {
-  position: absolute;
-  top: 5rem;
-  left: 0;
-  width: 100%;
-  background-color: #fff;
-  padding: 1rem;
-  width: 70%;
 }
 </style>

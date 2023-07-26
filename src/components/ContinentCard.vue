@@ -1,5 +1,5 @@
 <template>
-  <div class="continent-card">
+  <div class="continent-card" @click="onCardClick">
     <img
       src="https://pixabay.com/get/gdc2222eb785942d451de4beae2b5133b144676a5fc96fb06e0bba7a34ce75310ba533904e88129671cc9019823a1851f4b5057b789e97028d235550a06ae2bfc_640.jpg"
       alt=""
@@ -16,6 +16,16 @@ export default {
   props: {
     continent: Object,
   },
+  methods: {
+    onCardClick() {
+      this.$router.push({
+        path: '/countries',
+        query: {
+          continent: this.continent.code, 
+        }
+      })
+    }
+  }
 };
 </script>
 

@@ -1,8 +1,14 @@
 import gql from "graphql-tag";
 
 export const countryQuery = gql`
-  {
-    countries {
+  query ($continents: [String!]) {
+    countries (
+      filter: {
+        continent: {
+          in: $continents,
+        }
+      }
+    ) {
       code
       name
       capital

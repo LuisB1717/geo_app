@@ -3,12 +3,8 @@
     <side-bar />
 
     <main>
-      <div class="header">
-        <the-search />
-      </div>
-
       <section>
-        <router-view />
+        <router-view :continents="continents" />
       </section>
     </main>
   </div>
@@ -16,13 +12,15 @@
 
 <script>
 import SideBar from "./components/SideBar";
-import TheSearch from "./components/TheSearch.vue";
+import { continentQuery } from "./graphql/queries/continents.js";
 
 export default {
   name: "App",
   components: {
     SideBar,
-    TheSearch,
+  },
+  apollo: {
+    continents: continentQuery,
   },
 };
 </script>
@@ -45,14 +43,7 @@ main {
   width: calc(100% - 300px);
   margin-left: 300px;
   padding: 40px 20px;
-}
-
-.header {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 60px;
+  min-height: 100vh;
 }
 
 

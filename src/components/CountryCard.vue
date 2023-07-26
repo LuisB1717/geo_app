@@ -31,27 +31,29 @@ export default {
 .country-card {
   width: 300px;
   background-color: white;
-  border-radius: 50px;
+  border-radius: 20px;
   box-shadow: 1px 1px 10px #757575;
   cursor: pointer;
   display: flex;
   flex-direction: column;
 }
+
 .country-img {
   width: 100%;
-  border-radius: 50px 50px 0 0;
+  border-radius: 20px 20px 0 0;
 }
 
 .country-card-info {
   display: flex;
-  padding: 15px 35px;
+  padding: 12px 20px;
   align-items: center;
+  flex: 1;
 }
 
 .country-card-info img {
   width: 60px;
   height: 40px;
-  margin-right: 20px;
+  margin-right: 16px;
 }
 
 .country-name {
@@ -66,8 +68,9 @@ export default {
 .country-card:hover {
   .country-card-info {
     background-color: #0098ff;
-    border-radius: 0 0 50px 50px;
+    border-radius: 0 0 20px 20px;
   }
+
   .country-name,
   .continent-name {
     color: white;

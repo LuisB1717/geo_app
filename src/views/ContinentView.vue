@@ -12,16 +12,14 @@
 
 <script>
 import ContinentCard from "../components/ContinentCard.vue";
-import { continentQuery } from "../graphql/queries/continents.js";
 
 export default {
   name: "ContinentView",
   components: {
     ContinentCard,
   },
-
-  apollo: {
-    continents: continentQuery,
+  props: {
+    continents: Array,
   },
 };
 </script>

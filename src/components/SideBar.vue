@@ -2,9 +2,9 @@
   <nav class="navbar">
     <div class="name">GEOAPP</div>
     <div class="list">
-      <router-link to="/">Inicio</router-link>
-      <router-link to="/countries">Paises</router-link>
-      <router-link to="/continents">Continentes</router-link>
+      <router-link exact-path to="/">Inicio</router-link>
+      <router-link exact-path to="/countries">Paises</router-link>
+      <router-link exact-path to="/continents">Continentes</router-link>
     </div>
   </nav>
 </template>
