@@ -16,7 +16,11 @@
       <img src="../assets/lupa.png" alt="" /> Buscar
     </button>
 
-    <filter-modal v-if="showModal" :continents="continents" @change="onFilterChange"/>
+    <filter-modal
+      v-if="showModal"
+      :continents="continents"
+      @change="onFilterChange"
+    />
   </div>
 </template>
 
@@ -27,13 +31,13 @@ export default {
   components: {
     FilterModal,
   },
-  props:{
+  props: {
     value: String,
-    continents: Array
+    continents: Array,
   },
   data() {
     return {
-      search: '',
+      search: "",
       showModal: false,
     };
   },
@@ -44,18 +48,18 @@ export default {
     },
   },
   mounted() {
-    window.addEventListener('click', (event) => {
-      if (!event.target.className.includes('modal')) {
+    window.addEventListener("click", (event) => {
+      if (!event.target.className.includes("modal")) {
         this.showModal = false;
       }
-    })
+    });
   },
   methods: {
     onFilterChange(value) {
-      this.$emit('change', value)
+      this.$emit("change", value);
     },
     onInput(event) {
-      this.$emit('input', event.target.value)
+      this.$emit("input", event.target.value);
     },
     onFocus() {
       this.showModal = true;

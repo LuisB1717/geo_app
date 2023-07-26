@@ -11,9 +11,6 @@
 
 <style>
 .navbar {
-  position: fixed;
-  width: 280px;
-  height: 100%;
   background-color: #676767;
   color: white;
   padding: 1rem;
@@ -48,6 +45,20 @@
 .list a:hover , .list a.router-link-exact-active{
   background-color: white;
   color: #676767;
-  border-radius: 7px;
+  border-radius: 4px;
+}
+
+@media (min-width: 1024px) {
+  .navbar {
+    position: fixed;
+    height: 100%;
+    width: 280px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .navbar {
+    width: 320px;
+  }
 }
 </style>

@@ -15,7 +15,7 @@
         />
       </div>
 
-      <the-drawer v-if="showDrawer" :country="countrySelected" />
+      <the-drawer v-if="showDrawer" :country="countrySelected" @close="onClose" />
     </div>
   </div>
 </template>
@@ -77,6 +77,10 @@ export default {
         this.countrySelected = country;
       }
     },
+    onClose() {
+      this.showDrawer = false;
+      this.countrySelected = null;
+    }
   },
 
   apollo: {

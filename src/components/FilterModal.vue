@@ -82,28 +82,24 @@ export default {
 .highlight img {
   box-shadow: 0 0 3px 2px #0098ff;
 }
-
 .modal-wrapper {
   position: absolute;
   top: 5rem;
   left: 0;
   background-color: #fff;
   padding: 1.2rem;
-  width: 70%;
+  width: 100%;
   border-radius: 25px;
 }
-
 .modal-header {
   display: flex;
   justify-content: space-between;
   margin-bottom: 15px;
 }
-
 .modal-title {
   color: #757575;
   font-weight: 540;
 }
-
 .modal-clear {
   border: none;
   background-color: transparent;
@@ -112,14 +108,12 @@ export default {
   cursor: pointer;
   font-size: 15px;
 }
-
 .modal-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, 130px);
   gap: 10px 25px;
   place-content: center;
 }
-
 .modal-item p {
   color: #757575;
   margin-top: 5px;
@@ -128,13 +122,17 @@ export default {
 .modal-image {
   border-radius: 12px;
 }
-
 .modal-card {
   display: flex;
   justify-content: center;
 }
-
 .modal-image {
   width: 130px;
+}
+
+@media (min-width: 1024px) {
+  .modal-wrapper {
+    width: 70%;
+  }
 }
 </style>

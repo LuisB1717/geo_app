@@ -37,14 +37,21 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
   background-color: #e3f4ff;
+  display: flex;
+  flex-direction: column;
 }
-
 main {
-  width: calc(100% - 300px);
-  margin-left: 300px;
   padding: 40px 20px;
   min-height: 100vh;
+  flex: 1;
 }
 
-
+@media (min-width: 1024px) {
+  #app {
+    flex-direction: row;
+  }
+  main {
+    margin-left: 280px;
+  }
+}
 </style>
