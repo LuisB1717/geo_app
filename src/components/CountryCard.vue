@@ -1,5 +1,8 @@
 <template>
-  <div class="country-card" @click="$emit('click')">
+  <div
+    :class="['country-card', { selected: selected?.code == country?.code }]"
+    @click="$emit('click')"
+  >
     <img
       class="country-img"
       src="https://elviajerofeliz.com/wp-content/uploads/2019/02/Ciudades-de-Espan%CC%83a.jpg"
@@ -23,6 +26,7 @@
 export default {
   props: {
     country: Object,
+    selected: Object,
   },
 };
 </script>
@@ -65,7 +69,8 @@ export default {
   color: #757575;
 }
 
-.country-card:hover {
+.country-card:hover,
+.country-card.selected {
   .country-card-info {
     background-color: #0098ff;
     border-radius: 0 0 20px 20px;

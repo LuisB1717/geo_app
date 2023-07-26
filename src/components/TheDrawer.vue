@@ -1,4 +1,5 @@
 <template>
+  <div class="drawer-wrapper">
   <div class="drawer">
     <img
       class="img-drawer"
@@ -35,6 +36,7 @@
       </ul>
     </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -52,14 +54,19 @@ export default {
 </script>
 
 <style>
+.drawer-wrapper {
+  position: relative;
+  width: 360px;
+}
 .drawer {
-  padding: 50px;
+  padding: 2rem;
+  position: fixed;
+  background-color: white;
 }
 .img-drawer {
-  width: 300px;
+  width: 100%;
   border-radius: 15px;
 }
-
 .drawer-content {
   display: flex;
   padding: 20px 0;
@@ -75,7 +82,7 @@ export default {
 .country-info p {
   font-weight: 800;
   color: #0098ff;
-  margin-bottom: 15px;
+  margin-bottom: 0.5rem;
 }
 
 .country-info span {
@@ -90,6 +97,7 @@ export default {
   background-color: white;
   color: #676767;
   box-shadow: 1px 1px 6px 1px #757575;
+  margin-top: 1rem;
 }
 
 .region-list li {

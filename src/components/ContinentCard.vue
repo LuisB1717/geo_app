@@ -32,7 +32,7 @@ export default {
 <style>
 .continent-card {
   width: 400px;
-  border-radius: 50px;
+  border-radius: 20px;
   background-color: white;
   box-shadow: 1px 1px 10px #757575;
   cursor: pointer;
@@ -41,7 +41,7 @@ export default {
 }
 .continent-card img {
   width: 100%;
-  border-radius: 50px 50px 0 0;
+  border-radius: 20px 20px 0 0;
 }
 
 .continent-card-info {

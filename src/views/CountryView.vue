@@ -10,16 +10,12 @@
           v-for="country in countries"
           :key="country.code"
           :country="country"
+          :selected="countrySelected"
           @click="onSelectCountry(country)"
         />
       </div>
 
-      <div class="drawer-container" v-if="showDrawer">
-        <div class="container-button">
-          <button class="close-button" @click="onClosedDrawer">X</button>
-        </div>
-        <the-drawer :country="countrySelected" />
-      </div>
+      <the-drawer v-if="showDrawer" :country="countrySelected" />
     </div>
   </div>
 </template>
@@ -60,11 +56,15 @@ export default {
       this.selectedContinents = value;
     },
     onSelectCountry(country) {
-      this.countrySelected = country;
-      this.showDrawer = true;
-    },
-    onClosedDrawer() {
-      this.showDrawer = false;
+      if (!this.countrySelected) {
+        this.showDrawer = true;
+        this.countrySelected = country;
+      } else if (country.code == this.countrySelected.code) {
+        this.showDrawer = false;
+        this.countrySelected = null;
+      } else {
+        this.countrySelected = country;
+      }
     },
   },
 
@@ -101,12 +101,6 @@ export default {
   align-items: center;
   justify-content: center;
   margin-bottom: 60px;
-}
-
-.drawer-container {
-  height: 100%;
-  background-color: white;
-  position: relative;
 }
 
 .card-container {
