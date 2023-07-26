@@ -54,4 +54,10 @@ main {
     margin-left: 280px;
   }
 }
+
+@media (min-width: 1600px) {
+  main {
+    margin-left: 320px;
+  }
+}
 </style>
