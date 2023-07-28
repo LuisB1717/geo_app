@@ -56,7 +56,8 @@ export default {
 
       this.$router.replace({
         query: {
-          continent: this.selected.join(","),
+          ...this.$router.currentRoute.query,
+          continent: this.selected.join(','),
         },
       });
 
@@ -67,7 +68,8 @@ export default {
         this.selected = [];
         this.$router.replace({
           query: {
-            continent: "",
+            ...this.$router.currentRoute.query,
+            continent: '',
           },
         });
       }

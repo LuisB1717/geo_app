@@ -45,14 +45,14 @@ export default {
     CountrySearch
   },
   data() {
-    const selectedContinents = this.$router.currentRoute.query?.continent;
+    const query = this.$router.currentRoute.query
 
     return {
-      search: "",
+      search: query?.search || '',
       showDrawer: false,
       countrySelected: null,
-      selectedContinents: selectedContinents
-        ? selectedContinents.split(",")
+      selectedContinents: query?.continent
+        ? query?.continent?.split(",")
         : [],
     };
   },
@@ -65,8 +65,8 @@ export default {
         return this.countries;
       }
       return this.countries.filter((country) => {
-        const countryName = country.name.toLowerCase();
-        return countryName.includes(this.search.toLowerCase());
+        const countryName = country.name?.toLowerCase();
+        return countryName.includes(this.search?.toLowerCase());
       });
     },
   },

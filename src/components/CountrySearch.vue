@@ -3,6 +3,7 @@
     <div class="input-container">
       <label for="search"> País </label>
       <input
+        :value="value"
         name="search"
         type="text"
         class="search-modal-input"
@@ -37,7 +38,6 @@ export default {
   },
   data() {
     return {
-      search: "",
       showModal: false,
     };
   },
@@ -59,6 +59,12 @@ export default {
       this.$emit("change", value);
     },
     onInput(event) {
+      this.$router.replace({
+        query: {
+          ...this.$router.currentRoute.query,
+          search: event.target.value,
+        }
+      })
       this.$emit("input", event.target.value);
     },
     onFocus() {
