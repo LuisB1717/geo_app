@@ -1,7 +1,7 @@
 <template>
   <div class="country-view">
     <div class="header">
-      <the-search
+      <country-search
         v-model="search"
         :continents="continents"
         @change="onFilterChange"
@@ -19,7 +19,7 @@
         />
       </div>
 
-      <the-drawer
+      <country-drawer
         v-if="showDrawer"
         :country="countrySelected"
         @close="onClose"
@@ -30,8 +30,8 @@
 
 <script>
 import CountryCard from "../components/CountryCard.vue";
-import TheDrawer from "../components/TheDrawer.vue";
-import TheSearch from "../components/TheSearch.vue";
+import CountryDrawer from "../components/CountryDrawer.vue";
+import CountrySearch from "../components/CountrySearch.vue";
 import { countryQuery } from "../data/graphql/countries.js";
 
 export default {
@@ -41,8 +41,8 @@ export default {
   },
   components: {
     CountryCard,
-    TheDrawer,
-    TheSearch,
+    CountryDrawer,
+    CountrySearch
   },
   data() {
     const selectedContinents = this.$router.currentRoute.query?.continent;
