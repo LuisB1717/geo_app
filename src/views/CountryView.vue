@@ -1,7 +1,11 @@
 <template>
   <div class="country-view">
     <div class="header">
-      <the-search v-model="search" :continents="continents" @change="onFilterChange" />
+      <the-search
+        v-model="search"
+        :continents="continents"
+        @change="onFilterChange"
+      />
     </div>
 
     <div class="section">
@@ -15,7 +19,11 @@
         />
       </div>
 
-      <the-drawer v-if="showDrawer" :country="countrySelected" @close="onClose" />
+      <the-drawer
+        v-if="showDrawer"
+        :country="countrySelected"
+        @close="onClose"
+      />
     </div>
   </div>
 </template>
@@ -40,7 +48,7 @@ export default {
     const selectedContinents = this.$router.currentRoute.query?.continent;
 
     return {
-      search: '',
+      search: "",
       showDrawer: false,
       countrySelected: null,
       selectedContinents: selectedContinents
@@ -51,16 +59,16 @@ export default {
   computed: {
     filteredCountries() {
       if (!this.countries?.length) {
-        return []
+        return [];
       }
-      if (this.search == '') {
-        return this.countries
+      if (this.search == "") {
+        return this.countries;
       }
-      return this.countries.filter(country => {
-        const countryName = country.name.toLowerCase()
-        return countryName.includes(this.search.toLowerCase())
-      })
-    }
+      return this.countries.filter((country) => {
+        const countryName = country.name.toLowerCase();
+        return countryName.includes(this.search.toLowerCase());
+      });
+    },
   },
   methods: {
     onFilterChange(value) {
@@ -80,7 +88,7 @@ export default {
     onClose() {
       this.showDrawer = false;
       this.countrySelected = null;
-    }
+    },
   },
 
   apollo: {
@@ -106,7 +114,7 @@ export default {
   flex-direction: column;
 }
 
-.section{
+.section {
   display: flex;
 }
 

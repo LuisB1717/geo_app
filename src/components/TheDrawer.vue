@@ -2,15 +2,15 @@
   <div class="drawer-wrapper" @click="onDrawerClick">
     <div class="drawer">
       <img
-        v-if="image"
-        :src="image"
-        class="img-drawer"
+        :src="image || defaultImage"
+        class="drawer-image"
         alt="country image"
       />
       <div class="drawer-content">
         <img
           :src="`https://flagsapi.com/${country?.code}/flat/64.png`"
           alt="Country flag"
+          :onerror="`this.onerror=null;this.src='${defaultFlag}'`"
         />
         <div>
           <p class="country-name">{{ country?.name }}</p>
@@ -24,16 +24,19 @@
         <p>
           Language: <span> {{ languages }} </span>
         </p>
-        <p>Population: <span> 500k people</span></p>
         <p>
-          Currency: <span> {{ country?.currency }}</span>
+          Population: <span> 500k people </span>
         </p>
-        <p>Region</p>
-        <ul class="region-list">
+        <p>
+          Currency: <span> {{ country?.currency }} </span>
+        </p>
+        <p>
+          Regions: <span v-if="!thereAreRegions"> No se encontraron regiones </span>
+        </p>
+        <ul v-if="thereAreRegions" class="region-list">
           <li v-for="state in country?.states" :key="state.code">
             {{ state.name }}
           </li>
-          <p v-if="country?.states.length === 0">No se encontraron regiones</p>
         </ul>
       </div>
     </div>
@@ -41,6 +44,7 @@
 </template>
 
 <script>
+import { defaultFlag, defaultImage } from "../data/restapi/pixabay.js";
 import { getImage } from "../data/storage/cache.js";
 
 export default {
@@ -50,6 +54,8 @@ export default {
   data() {
     return {
       image: getImage(this.country?.code),
+      defaultImage,
+      defaultFlag,
     }
   },
   updated() {
@@ -60,6 +66,9 @@ export default {
       if (!this.country?.languages) return "";
       return this.country.languages.map((lang) => lang.name).join(", ");
     },
+    thereAreRegions() {
+      return this.country?.states.length > 0
+    }
   },
   methods: {
     onDrawerClick() {
@@ -82,7 +91,7 @@ export default {
   left: 0;
   right: 0;
 }
-.img-drawer {
+.drawer-image {
   width: 100%;
   border-radius: 15px;
 }
@@ -116,6 +125,8 @@ export default {
   color: #676767;
   box-shadow: 1px 1px 6px 1px #757575;
   margin-top: 1rem;
+  height: 240px;
+  overflow-y: scroll;
 }
 
 .region-list li {

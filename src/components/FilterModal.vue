@@ -90,6 +90,7 @@ export default {
   padding: 1.2rem;
   width: 100%;
   border-radius: 25px;
+  z-index: 1;
 }
 .modal-header {
   display: flex;
