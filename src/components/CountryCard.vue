@@ -4,9 +4,10 @@
     @click="$emit('click')"
   >
     <img
+      v-if="image"
+      :src="image"
       class="country-img"
-      src="https://elviajerofeliz.com/wp-content/uploads/2019/02/Ciudades-de-Espan%CC%83a.jpg"
-      alt=""
+      alt="country image reference"
     />
     <div class="country-card-info">
       <img
@@ -22,10 +23,28 @@
 </template>
 
 <script>
+import { getImageFrom } from "../data/restapi/pixabay.js";
+import { getImage, saveImage } from "../data/storage/cache.js";
+
 export default {
   props: {
     country: Object,
     selected: Object,
+  },
+  data() {
+    return {
+      image: getImage(this.country?.code),
+    }
+  },
+  mounted() {
+    if (!this.image) {
+      getImageFrom(this.country?.name).then(value => {
+        if (value) {
+          this.image = value
+          saveImage(this.country?.code, value)
+        }
+      })
+    }
   },
 };
 </script>

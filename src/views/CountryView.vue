@@ -24,7 +24,7 @@
 import CountryCard from "../components/CountryCard.vue";
 import TheDrawer from "../components/TheDrawer.vue";
 import TheSearch from "../components/TheSearch.vue";
-import { countryQuery } from "../graphql/queries/countries.js";
+import { countryQuery } from "../data/graphql/countries.js";
 
 export default {
   name: "CountryView",

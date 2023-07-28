@@ -2,9 +2,10 @@
   <div class="drawer-wrapper" @click="onDrawerClick">
     <div class="drawer">
       <img
+        v-if="image"
+        :src="image"
         class="img-drawer"
-        src="https://elviajerofeliz.com/wp-content/uploads/2019/02/Ciudades-de-Espan%CC%83a.jpg"
-        alt=""
+        alt="country image"
       />
       <div class="drawer-content">
         <img
@@ -40,9 +41,19 @@
 </template>
 
 <script>
+import { getImage } from "../data/storage/cache.js";
+
 export default {
   props: {
     country: Object,
+  },
+  data() {
+    return {
+      image: getImage(this.country?.code),
+    }
+  },
+  updated() {
+    this.image = getImage(this.country?.code)
   },
   computed: {
     languages() {

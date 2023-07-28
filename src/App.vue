@@ -12,7 +12,7 @@
 
 <script>
 import SideBar from "./components/SideBar";
-import { continentQuery } from "./graphql/queries/continents.js";
+import { continentQuery } from "./data/graphql/continents.js";
 
 export default {
   name: "App",
