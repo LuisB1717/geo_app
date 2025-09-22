@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
 
 Aplicación web desarrollada con **Vue.js** para explorar información geográfica de países.  
-Utiliza la API de [Restcountries](https://restcountries.com/) para obtener datos actualizados sobre cada nación.
+Consume datos mediante **GraphQL** usando **Apollo Client** y también utiliza **Restcountries API** para datos adicionales.
 
 ---
 
@@ -18,7 +18,8 @@ Utiliza la API de [Restcountries](https://restcountries.com/) para obtener datos
 - 🔍 Búsqueda por nombre de país  
 - 📊 Información organizada y fácil de leer  
 - 🌍 Interfaz limpia y responsiva  
-- ⚡ Multiplataforma: funciona en cualquier navegador moderno
+- ⚡ Multiplataforma: funciona en cualquier navegador moderno  
+- 🧩 Consumo de datos con **GraphQL** usando **Apollo Client**
 
 ---
 
@@ -26,8 +27,10 @@ Utiliza la API de [Restcountries](https://restcountries.com/) para obtener datos
 
 - [Vue.js](https://vuejs.org/) (versión `3.x.x`)  
 - [Vue Router](https://router.vuejs.org/)  
-- [Axios](https://axios-http.com/) para consumo de APIs  
-- [Restcountries API](https://restcountries.com/) para datos geográficos
+- [Apollo Client](https://www.apollographql.com/docs/react/) para consumo de GraphQL  
+- [Axios](https://axios-http.com/) para consumir REST API  
+- [Restcountries API](https://restcountries.com/) para datos geográficos  
+- [GraphQL](https://graphql.org/) como alternativa para obtener datos filtrados y estructurados
 
 ---
 
@@ -37,6 +40,7 @@ Utiliza la API de [Restcountries](https://restcountries.com/) para obtener datos
    ```bash
    git clone https://github.com/LuisB1717/geo_app.git
    cd geo_app
+
 
 2. Instalar dependencias
     ```bash
