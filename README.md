@@ -9,13 +9,6 @@ Utiliza la API de [Restcountries](https://restcountries.com/) para obtener datos
 
 ---
 
-## 🌟 Demo
-
-Accede a la demo online:  
-[https://tu-demo-aqui.netlify.app](https://tu-demo-aqui.netlify.app) *(si no tienes demo, puedes quitar esta línea)*
-
----
-
 ## ✨ Características
 
 - 🌐 Visualiza información detallada de países:
