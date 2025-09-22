@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
 
 Aplicación web desarrollada con **Vue.js** para explorar información geográfica de países.  
-Consume datos mediante **GraphQL** usando **Apollo Client** y también utiliza **Restcountries API** para datos adicionales.
+Consume datos mediante **GraphQL** usando **Apollo Client**.
 
 ---
 
@@ -29,7 +29,6 @@ Consume datos mediante **GraphQL** usando **Apollo Client** y también utiliza *
 - [Vue Router](https://router.vuejs.org/)  
 - [Apollo Client](https://www.apollographql.com/docs/react/) para consumo de GraphQL  
 - [Axios](https://axios-http.com/) para consumir REST API  
-- [Restcountries API](https://restcountries.com/) para datos geográficos  
 - [GraphQL](https://graphql.org/) como alternativa para obtener datos filtrados y estructurados
 
 ---
